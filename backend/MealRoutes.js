@@ -1,11 +1,10 @@
 const { Router } = require('express');
+const { getMeal, saveMeals } = require('./MealController');
 
 const router = Router();
 
-router.get('/', (req, res) => {
-    res.json({ test: "WE GOT HERE!!!" })
-})
-
+router.get('/', getMeal)
+router.post('/', saveMeals)
 
 
 
