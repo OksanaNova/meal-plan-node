@@ -16,3 +16,11 @@ module.exports.saveMeals = async (req, res) => {
     res.send(data)
     })
 }
+
+// DELETE
+
+module.exports.deleteMeal = async (req, res) => {
+    const { _id } = req.body;
+    MealModel.findByIdAndDelete({ _id })
+    .then(() => res.send('Meal deleted'))
+}
