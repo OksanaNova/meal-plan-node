@@ -4,7 +4,7 @@ const { getMeal, saveMeals } = require('./MealController');
 const router = Router();
 
 router.get('/', getMeal)
-router.post('/', saveMeals)
+router.post('/saveMeals', saveMeals)
 
 
 
