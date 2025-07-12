@@ -1,4 +1,5 @@
 import './App.css'
+import { MyMeals } from './MyMeals';
 
 function App() {
 
@@ -16,9 +17,7 @@ function App() {
         Add
       </button>
 
-      <p>
-        test
-      </p>
+      <MyMeals text={"We got here"} />
 
     </div>
   )
