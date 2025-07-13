@@ -2,11 +2,13 @@ import './App.css'
 
 import { useEffect, useState } from 'react';
 import { MyMeals } from './MyMeals';
-import { getAllMeals } from './FetchMeals';
+import { addMeal, getAllMeals } from './FetchMeals';
 
 function App() {
 
   const [ myMeal, setMeal] = useState([]);
+
+  const [ title, setTitle ] = useState("");
 
   useEffect(() => {
     getAllMeals(setMeal)
@@ -19,9 +21,11 @@ function App() {
       <input
       type='text'
       placeholder='Add a meal'
+      value={title}
+      onChange={(e) => setTitle(e.target.value)}
       />
 
-      <button>
+      <button onClick={() => addMeal(title, setTitle, setMeal)}>
         Add
       </button>
 
