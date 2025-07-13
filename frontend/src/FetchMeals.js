@@ -26,4 +26,4 @@ const editMeal = (mealId, title, setTitle, setMeal, setEditing) => {
     })
 }
 
-export { getAllMeals, addMeal };
+export { getAllMeals, addMeal, editMeal };
