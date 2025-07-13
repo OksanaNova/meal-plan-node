@@ -1,8 +1,16 @@
 import './App.css'
+
+import { useEffect, useState } from 'react';
 import { MyMeals } from './MyMeals';
+import { getAllMeals } from './FetchMeals';
 
 function App() {
 
+  const [ myMeal, setMeal] = useState([]);
+
+  useEffect(() => {
+    getAllMeals(setMeal)
+  }, [])
 
   return (
     <div>
@@ -17,7 +25,7 @@ function App() {
         Add
       </button>
 
-      <MyMeals text={"We got here"} />
+      {myMeal.map((meal) => <MyMeals text={meal.title} key={meal._id}/>)}
 
     </div>
   )
