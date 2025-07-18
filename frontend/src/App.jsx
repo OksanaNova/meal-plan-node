@@ -2,7 +2,7 @@ import './App.css'
 
 import { useEffect, useState } from 'react';
 import { MyMeals } from './MyMeals';
-import { addMeal, getAllMeals, editMeal } from './FetchMeals';
+import { addMeal, getAllMeals, editMeal, deleteMeal } from './FetchMeals';
 
 function App() {
 
@@ -36,15 +36,14 @@ function App() {
       onChange={(e) => setTitle(e.target.value)}
       />
 
-      <button onClick={
-        editing ? () => editMeal(mealId, title, setTitle, setMeal, setEditing) 
-        : () => addMeal(title, setTitle, setMeal)
-        }>
+      <button onClick=
+        { editing ? () => editMeal(mealId, title, setTitle, setMeal, setEditing) : () => addMeal(title, setTitle, setMeal)}>
         { editing ? "Edit" : "Add" }
       </button>
 
       {myMeal.map((meal) => <MyMeals text={meal.title} key={meal._id}
-      updatingInInput={() => updatingInInput(meal._id, meal.title)} />
+      updatingInInput={() => updatingInInput(meal._id, meal.title)} 
+      deleteMeal={() => deleteMeal(meal._id, setMeal)} />
       )}
 
     </div>
